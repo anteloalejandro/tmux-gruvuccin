@@ -34,7 +34,7 @@ main() {
   local color_interpolation=()
   local color_values=()
   local temp
-  theme="$(get_tmux_option "@catppuccin_flavour" "mocha")"
+  theme="$(get_tmux_option "@catppuccin_flavour" "gruvbox-dark")" # NOTE: get_tmux_option "@catppuccin_flavour" "<default theme>"
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   # https://github.com/dylanaraps/pure-sh-bible#parsing-a-keyval-file
@@ -53,7 +53,7 @@ main() {
     temp="${temp#\"}"
     color_interpolation+=("\#{$key}")
     color_values+=("${temp}")
-  done <"${PLUGIN_DIR}/themes/catppuccin_${theme}.tmuxtheme"
+  done <"${PLUGIN_DIR}/themes/${theme}.tmuxtheme"
 
   # status general
   local status_default status_justify status_background message_background
